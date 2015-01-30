@@ -12,12 +12,12 @@ require 'pathname'
 
 require 'pg'
 require 'bcrypt'
-# require 'bcrypt-ruby'
 require 'active_record'
 require 'logger'
 
 require 'sinatra'
-require "sinatra/reloader" if development?
+require 'sinatra/reloader' if development?
+require 'pry'
 
 require 'erb'
 
