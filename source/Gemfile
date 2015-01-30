@@ -5,7 +5,7 @@ gem 'rake'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
-
+gem 'sinatra-partial'
 # Use Thin as web server
 gem 'thin'
 

@@ -16,6 +16,7 @@ require 'active_record'
 require 'logger'
 
 require 'sinatra'
+require 'sinatra/partial'
 require 'sinatra/reloader' if development?
 require 'pry'
 
