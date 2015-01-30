@@ -40,19 +40,19 @@ configure do
   enable :sessions
   set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
 
-  # HTML only allows `post' and `get' by default
-  # RESTful convention uses `put' and `delete' controller routes
-  # Translates`put' and `delete' routes in Sinatra controller to
-  # appropriate `post' request through in HTML
+  # HTML forms support `post` and `get` HTTP requests only
+  # This overrides the HTML form `post` request with `put` or `delete`
+  # through a hidden form input.
   enable :method_override
-  # Use hidden field to trigger appropriate form action:
-  # <form action="" method="post">
-  #   <input type="hidden" name="_method" value="put" />
-  #   <input type="hidden" name="_method" value="delete" />
+  # Usage:
+  # <form action="/[controller action]" method="post">
+  #   <input type="hidden" name="_method" value="[put/delete]" />
   # </form>
 
-  # Set the views to
+  # Set up the views
   set :views, File.join(Sinatra::Application.root, "app", "views")
+  set :partial_template_engine, :erb
+  enable :partial_underscores
 end
 
 # Set up the controllers and helpers
