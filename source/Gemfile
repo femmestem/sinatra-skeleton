@@ -1,33 +1,37 @@
-# source :rubygems
 source 'https://rubygems.org'
 
+gem 'rake'
 
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
 
-# Use PostgreSQL for our database
-gem 'pg'
-
-# Use Thin for our web server
+# Use Thin as web server
 gem 'thin'
-gem 'activesupport'
-gem 'activerecord'
-# Use shotgun to detect changes and reload the server
+
+# Detect changes and automatically reload web server
 gem 'shotgun'
 
-# Use has_secure_password
+# Use PostgreSQL database
+gem 'pg'
+
+# Use ActiveRecord object relational map
+gem 'activerecord'
+gem 'activesupport'
+
+# Includes ActiveModel #has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'rake'
+group :development, :test do
+  gem 'faker'
+  gem 'factory_girl'
+  gem 'tux'
+  gem 'pry'
+  gem 'awesome_print'
+end
 
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
   gem 'rspec'
-end
-
-group :test, :development do
-  gem 'factory_girl'
-  gem 'faker'
 end
